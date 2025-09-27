@@ -60,7 +60,7 @@
 .dashboard-card h2 {
   text-align: center;
   margin-bottom: 24px;
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #2d3a4b;
 }
@@ -72,11 +72,11 @@
 }
 
 .dashboard-list li {
-  font-size: 1.1rem;
+  font-size: 14px;
   margin-bottom: 14px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 5px;
 }
 
 .share-btn {
@@ -86,7 +86,21 @@
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 1.1rem;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.12);
+}
+
+.refresh-btn, .theme-btn {
+  width: 100%;
+  padding: 12px 0;
+  background: linear-gradient(90deg, #4f8cff 0%, #38c6ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
@@ -101,3 +115,96 @@
   from { opacity: 0; transform: translateY(30px);}
   to { opacity: 1; transform: translateY(0);}
 }
+
+.dashboard-container.dark {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+}
+
+.dashboard-card {
+  /* ...giữ nguyên... */
+  color: #222;
+}
+
+.dashboard-container.dark .dashboard-card {
+  background: #232526;
+  color: #fff;
+}
+
+.dashboard-container.dark .dashboard-card h2 {
+  color: #fff;
+}
+
+.refresh-btn, .theme-btn {
+  width: 48%;
+  margin-top: 10px;
+  margin-right: 2%;
+  padding: 10px 0;
+  background: #f5f5f5;
+  color: #333;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.dashboard-container.dark .refresh-btn,
+.dashboard-container.dark .theme-btn {
+  background: #333;
+  color: #fff;
+}
+
+/* .dashboard-list li {
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  word-break: break-word;
+} */
+
+.network-info-card {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  padding: 20px 18px;
+  max-width: 350px;
+  margin: 20px auto;
+  font-size: 1.05rem;
+}
+
+.network-info-card h3 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #1976d2;
+}
+
+.network-info-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+
+.network-info-card li {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* .refresh-btn {
+  width: 100%;
+  padding: 10px 0;
+  background: linear-gradient(90deg, #4f8cff 0%, #38c6ff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.refresh-btn:hover {
+  background: linear-gradient(90deg, #38c6ff 0%, #4f8cff 100%);
+} */

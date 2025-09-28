@@ -1,3 +1,4 @@
+/* App mặc định */
 .App {
   text-align: center;
 }
@@ -37,48 +38,59 @@
   }
 }
 
+/* Dashboard Container */
 .dashboard-container {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+  transition: background 0.3s;
 }
 
+/* Card */
 .dashboard-card {
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   padding: 32px 24px;
-  max-width: 350px;
+  max-width: 370px;
   width: 100%;
   text-align: left;
   margin: 24px;
   animation: fadeIn 0.7s;
+  color: #222;
+  transition: background 0.3s, color 0.3s;
 }
 
+/* Title */
 .dashboard-card h2 {
   text-align: center;
   margin-bottom: 24px;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 700;
   color: #2d3a4b;
+  letter-spacing: 1px;
+  transition: color 0.3s;
 }
 
+/* List */
 .dashboard-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 24px 0;
+  margin: 0 8px 24px 8px;
 }
 
 .dashboard-list li {
-  font-size: 14px;
+  font-size: 1.08rem;
   margin-bottom: 14px;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 8px;
+  word-break: break-word;
 }
 
+/* Nút chính */
 .share-btn {
   width: 100%;
   padding: 12px 0;
@@ -86,54 +98,19 @@
   color: #fff;
   border: none;
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 1.08rem;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
   box-shadow: 0 2px 8px rgba(79,140,255,0.12);
-}
-
-.refresh-btn, .theme-btn {
-  width: 100%;
-  padding: 12px 0;
-  background: linear-gradient(90deg, #4f8cff 0%, #38c6ff 100%);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
-  box-shadow: 0 2px 8px rgba(79,140,255,0.12);
+  margin-bottom: 10px;
 }
 
 .share-btn:hover {
   background: linear-gradient(90deg, #38c6ff 0%, #4f8cff 100%);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px);}
-  to { opacity: 1; transform: translateY(0);}
-}
-
-.dashboard-container.dark {
-  background: linear-gradient(135deg, #232526 0%, #414345 100%);
-}
-
-.dashboard-card {
-  /* ...giữ nguyên... */
-  color: #222;
-}
-
-.dashboard-container.dark .dashboard-card {
-  background: #232526;
-  color: #fff;
-}
-
-.dashboard-container.dark .dashboard-card h2 {
-  color: #fff;
-}
-
+/* Nút phụ */
 .refresh-btn, .theme-btn {
   width: 48%;
   margin-top: 10px;
@@ -146,7 +123,77 @@
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(79,140,255,0.08);
+}
+
+.refresh-btn:last-child, .theme-btn:last-child {
+  margin-right: 0;
+}
+
+.refresh-btn:hover, .theme-btn:hover {
+  background: #e0eafc;
+}
+
+/* Session History */
+.session-history {
+  background: rgba(0,0,0,0.06);
+  border-radius: 8px;
+  padding: 12px 10px;
+  margin-bottom: 18px;
+  margin-top: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
+  transition: background 0.3s;
+}
+
+.session-history h4 {
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+  color: #1976d2;
+}
+
+.session-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.98rem;
+  max-height: 120px;      /* 5 dòng x 24px */
+  overflow-y: auto;
+  scrollbar-width: thin;  /* Firefox */
+  scrollbar-color: #b3b3b3 #f0f0f0;
+}
+
+.session-history li {
+  margin-bottom: 4px;
+  word-break: break-all;
+}
+
+/* DARK THEME */
+.dashboard-container.dark {
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+}
+
+.dashboard-container.dark .dashboard-card {
+  background: #232526;
+  color: #fff;
+}
+
+.dashboard-container.dark .dashboard-card h2 {
+  color: #40c9ff;
+}
+
+.dashboard-container.dark .dashboard-list li {
+  color: #e0eafc;
+}
+
+.dashboard-container.dark .share-btn {
+  background: linear-gradient(90deg, #40c9ff 0%, #1976d2 100%);
+  color: #fff;
+}
+
+.dashboard-container.dark .share-btn:hover {
+  background: linear-gradient(90deg, #1976d2 0%, #40c9ff 100%);
 }
 
 .dashboard-container.dark .refresh-btn,
@@ -155,56 +202,79 @@
   color: #fff;
 }
 
-/* .dashboard-list li {
-  font-size: 1.1rem;
-  margin-bottom: 14px;
+.dashboard-container.dark .refresh-btn:hover,
+.dashboard-container.dark .theme-btn:hover {
+  background: #444;
+}
+
+.dashboard-container.dark .session-history {
+  background: rgba(255,255,255,0.06);
+}
+
+.dashboard-container.dark .session-history h4 {
+  color: #40c9ff;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .dashboard-card {
+    padding: 16px 6px;
+    max-width: 98vw;
+    font-size: 0.95rem;
+  }
+  .dashboard-list li {
+    font-size: 1rem;
+  }
+  .share-btn, .refresh-btn, .theme-btn {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
+
+/* Scrollbar đẹp cho Chrome */
+.session-history ul::-webkit-scrollbar {
+  width: 6px;
+}
+.session-history ul::-webkit-scrollbar-thumb {
+  background: #b3b3b3;
+  border-radius: 4px;
+}
+.session-history ul::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.qr-section {
   display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  word-break: break-word;
-} */
+  flex-direction: column;
+  align-items: center;
+  margin: 16px 0 20px 0;
+}
 
-.network-info-card {
+.qr-box {
   background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-  padding: 20px 18px;
-  max-width: 350px;
-  margin: 20px auto;
-  font-size: 1.05rem;
-}
-
-.network-info-card h3 {
-  text-align: center;
-  margin-bottom: 18px;
-  color: #1976d2;
-}
-
-.network-info-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 12px 0;
-}
-
-.network-info-card li {
-  margin-bottom: 10px;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  padding: 16px;
+  margin-bottom: 8px;
+  transition: background 0.3s;
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
 }
 
-/* .refresh-btn {
-  width: 100%;
-  padding: 10px 0;
-  background: linear-gradient(90deg, #4f8cff 0%, #38c6ff 100%);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.2s;
+.dashboard-container.dark .qr-box {
+  background: #232526;
+  box-shadow: 0 2px 12px rgba(64,201,255,0.10);
 }
-.refresh-btn:hover {
-  background: linear-gradient(90deg, #38c6ff 0%, #4f8cff 100%);
-} */
+
+.qr-label {
+  font-size: 0.95rem;
+  color: #1976d2;
+  margin-top: 6px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
+}
+
+.dashboard-container.dark .qr-label {
+  color: #40c9ff;
+}
